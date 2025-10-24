@@ -1,0 +1,43 @@
+{% extends 'core/base.html' %}
+{% block title %}Admin Dashboard{% endblock %}
+{% block content %}
+<h2>Admin Dashboard</h2>
+<div class="row mt-4">
+  <div class="col-md-3 mb-3">
+    <div class="card text-white bg-primary">
+      <div class="card-body">
+        <h5 class="card-title">Students</h5>
+        <p class="card-text">{{ students_count }}</p>
+        <a href="{% url 'students' %}" class="btn btn-light btn-sm">View</a>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-3 mb-3">
+    <div class="card text-white bg-success">
+      <div class="card-body">
+        <h5 class="card-title">Teachers</h5>
+        <p class="card-text">{{ teachers_count }}</p>
+        <a href="{% url 'teachers' %}" class="btn btn-light btn-sm">View</a>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-3 mb-3">
+    <div class="card text-white bg-warning">
+      <div class="card-body">
+        <h5 class="card-title">Courses</h5>
+        <p class="card-text">{{ courses_count }}</p>
+        <a href="{% url 'courses' %}" class="btn btn-light btn-sm">View</a>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-3 mb-3">
+    <div class="card text-white bg-danger">
+      <div class="card-body">
+        <h5 class="card-title">Exams</h5>
+        <p class="card-text">{{ exams_count }}</p>
+        <a href="{% url 'exams' %}" class="btn btn-light btn-sm">View</a>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

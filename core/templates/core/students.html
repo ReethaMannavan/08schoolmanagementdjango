@@ -1,0 +1,33 @@
+{% extends 'core/base.html' %}
+{% block title %}Students{% endblock %}
+{% block content %}
+<h2>Students</h2>
+<a href="{% url 'student_add' %}" class="btn btn-success mb-3">Add Student</a>
+<table class="table table-striped table-responsive">
+    <thead>
+        <tr>
+            <th>Full Name</th>
+            <th>Username</th>
+            <th>Roll Number</th>
+            <th>Courses</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for student in students %}
+        <tr>
+            <td>{{ student.user.get_full_name }}</td>
+            <td>{{ student.user.username }}</td>
+            <td>{{ student.roll_number }}</td>
+            <td>
+                {% for c in student.courses.all %}{{ c.name }}{% if not forloop.last %}, {% endif %}{% endfor %}
+            </td>
+            <td>
+                <a href="{% url 'student_edit' student.id %}" class="btn btn-primary btn-sm">Edit</a>
+                <a href="{% url 'student_delete' student.id %}" class="btn btn-danger btn-sm">Delete</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

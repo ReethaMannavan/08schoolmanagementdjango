@@ -1,0 +1,32 @@
+{% extends 'core/base.html' %}
+{% block title %}Login{% endblock %}
+{% block content %}
+<div class="row justify-content-center">
+  <div class="col-md-4">
+    <h2 class="mb-3">Login</h2>
+    <form method="post">
+      {% csrf_token %}
+      {{ form.non_field_errors }}
+      <div class="mb-3">
+        {{ form.username.label_tag }}
+        {{ form.username }}
+        {{ form.username.errors }}
+      </div>
+      <div class="mb-3">
+        {{ form.password.label_tag }}
+        {{ form.password }}
+        {{ form.password.errors }}
+      </div>
+      <button class="btn btn-primary" type="submit">Login</button>
+    </form>
+  </div>
+</div>
+
+<div class="mt-5 alert alert-info w-50 mx-auto">
+    <strong>Hint:</strong><br>
+    Admin: <code>username: admin, password: admin1234</code><br>
+    Student: <code>username: student1, password: stud1234</code>
+</div>
+
+
+{% endblock %}
